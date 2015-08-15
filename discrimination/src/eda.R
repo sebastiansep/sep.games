@@ -2,7 +2,7 @@ library('ProjectTemplate')
 library(matrixStats)
 wealth.split = function(jobs)
 {
-  salary = (seq(100,10, by=-10))
+  salary = (seq(40,10, by=-10))
   wealth = data.frame(blue = as.numeric(colSums(jobs) %*% salary), green = NA)
   wealth$green = sum(salary)*length(salary) - wealth$blue
   wealth = round(wealth/sum(wealth),2)
@@ -31,9 +31,9 @@ movement = function(jobs, upward.discrimination, downward.discrimination)
 population = c(rep("blue", 50), rep("green", 50))
 init.discrimination = data.frame(blue =0.9, green = 0.1)
 
-jobs = matrix(0, nrow=10,ncol = 10)
-num.blue = 95
-num.green = 100-num.blue
+jobs = matrix(0, nrow=10,ncol = 4)
+num.blue = 20
+num.green = 20-num.blue
 for (i in 1:ncol(jobs))
 {
   blue.get.job = min(init.discrimination$blue*nrow(jobs), num.blue)
@@ -47,15 +47,17 @@ for (i in 1:ncol(jobs))
 }
 image(t(jobs))
 wealth.split(jobs)
-promotion.discrimination = data.frame(blue =0.6, green = 0.4)
+promotion.discrimination = data.frame(blue = 0.9, green = 0.1)
 demotion.discrimination = data.frame(blue =0.5, green = 0.5)
 blue.wealth = NULL
-for(i in 1:100000)
+for(i in 1:1000)
 {
   jobs = movement(jobs, promotion.discrimination, demotion.discrimination)
   #blue.wealth = c(blue.wealth, wealth.split(jobs)$blue)
 }
 wealth.split(jobs)
 image(t(jobs))
+
+
 
 
