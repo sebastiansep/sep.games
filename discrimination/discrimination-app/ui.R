@@ -60,7 +60,8 @@ shinyUI(fluidPage(
                ),
                helpText(   a("Click Here to read more about Markov Chains",     href="https://en.wikipedia.org/wiki/Markov_chain")
                ),
-               p("The current settings currently selected on this webpage produces the following markov mobility proportions (note the differences in probabilities of staying in one class):"),
+               p("The current settings currently selected on this webpage produces the following markov mobility proportions 
+                 (note the differences in probabilities of staying in one class: when racism is present red are always more likely to remain in the upper class and less likely to stay in the lower class):"),
                plotOutput("markovPlot")
       
       )
