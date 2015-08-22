@@ -64,7 +64,7 @@ socialmarkov = reactive(
           percapita = rbind(percapita, cbind(time = i, wealth.split))
           last.step = as.numeric(statesNames$final)
           summary = ceiling(wealth.split$percapita[1]/wealth.split$percapita[2])
-          summary = paste("In the ficticious country of Islandia, without inclusive policies a red person on average earns/n", summary, "times more than a blue person")
+          summary = paste("In the ficticious country of Islandia, without inclusive policies a red person on average earns", summary, "times more than a blue person")
           
         }else
         {
@@ -154,7 +154,7 @@ socialmarkov = reactive(
     statesNames$final[c(2,4)] = statesNames$final[c(2,4)]/sum(statesNames$final[c(2,4)])
     statesNames = melt(statesNames, c("race", "class", "names", "wages"))
     statesNames = subset(statesNames, variable == "final")
-    summary = paste(summary, "and is over-represented in the upper class by a factor of", ceiling(statesNames$value[1]/proportion.red))
+    summary = paste(summary, "and accounts for", percent(statesNames$value[1]), "of the upper class")
     if (input$racism==1)
     {
       summary = "There is equal distribution of resources between red and blue races"

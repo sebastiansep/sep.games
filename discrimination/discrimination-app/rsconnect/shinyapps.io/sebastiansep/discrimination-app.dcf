@@ -1,8 +1,8 @@
 name: discrimination-app
 account: sebastiansep
 server: shinyapps.io
-bundleId: 240990
+bundleId: 247289
 url: https://sebastiansep.shinyapps.io/discrimination-app
-when: 1439712572.87226
+when: 1440253790.03988
 asMultiple: FALSE
 asStatic: FALSE
